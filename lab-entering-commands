@@ -17,7 +17,7 @@ Follow the instructions line-by-line.
 Write the command you used to do this below.
 ----------
 
-
+nano temp.txt
 
 ==========
 3. Open another terminal
@@ -29,13 +29,16 @@ Write the command you used to do this below.
 
 Write the command that you used to do this, and the last two lines of output.
 ----------
-
+ls 
+TERA_ScreenShot_20180706_153236.png
+'thin mints.jpg'
 
 ==========
 4. Run the same command, but look for a specific process.  (It's the version of the command that has | grep ...).  Look for the program that you started to edit a file, nano.
 
 Write the command that you used to do this, and all of the output.
 ----------
+ls 
 
 
 ==========
