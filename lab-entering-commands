@@ -29,29 +29,37 @@ nano temp.txt
 
 Write the command that you used to do this, and the last two lines of output.
 ----------
-ls 
-TERA_ScreenShot_20180706_153236.png
-'thin mints.jpg'
+ps .ax
+53300   52576   53300      53320  pty1      197609 13:54:03 /usr/bin/ps
+    52576   41476   52576      51004  pty1      197609 13:48:49 /usr/bin/bash
 
 ==========
 4. Run the same command, but look for a specific process.  (It's the version of the command that has | grep ...).  Look for the program that you started to edit a file, nano.
 
 Write the command that you used to do this, and all of the output.
 ----------
-ls 
+ ps ax temp.txt
+      PID    PPID    PGID     WINPID   TTY         UID    STIME COMMAND
+I   48384   44972   48384      51444  pty0      197609 13:48:27 /usr/bin/nano
+    46356   52576   46356      53760  pty1      197609 13:56:59 /usr/bin/ps
+    41476       1   41476      41476  ?         197609 13:48:48 /usr/bin/mintty
+    51016       1   51016      51016  ?         197609 13:47:57 /usr/bin/mintty
+    44972   51016   44972      47672  pty0      197609 13:47:59 /usr/bin/bash
+    52576   41476   52576      51004  pty1      197609 13:48:49 /usr/bin/bash
+
 
 
 ==========
 5. Stop (kill) the process that's called nano "temp.txt" by using the process id shown in the output of your previous command (first number after user name).
 
 ----------
-
+kill 7821
 
 ==========
 6. Go to your other terminal window.  What happened to nano?  What was the message on the screen?
 
 ----------
-
+Received sighup or sigterm
 
 ==========
 7. Close the terminal window that nano was in, and go back to the terminal where you ran ps.
@@ -70,36 +78,37 @@ Quit and save when you're done.
 
 What command did you use to do this?
 ----------
-
+control (windows)+ X
 
 ==========
 9. Change the permissions (modify) on hello.sh so that the *user* (u) can *execute* (x) it: 
 
 Write the commands that you used to do this below.
 ----------
-
+chmod u+x hello.sh
 
 ==========
 10. Run your script (hello.sh).
 
 How did you do this?  What was the output?
 ----------
-
+./hello.sh
+Hi there
 
 ==========
 11. Change to the root directory.  Try running your script again (hello.sh).  What was the output (if there's an error, write it out)?
 ----------
-
+bash: ./hello.sh: No such file or directory
 
 ==========
 12. Now trying using the full, absolute path to your script (that is, starting with /...).  What did you write in?  What did it do?
 ----------
-
+cd Desktop/hello.sh
 
 ==========
 13.  Go back to the directory that your hello.sh script was in.  What command did you use to change to this directory? 
 ----------
-
+../
 
 ==========
 14. Type in the following command:
@@ -108,7 +117,7 @@ echo $PATH
 
 Write down the output of this command
 ----------
-
+/c/Users/Bear/bin:/mingw64/bin:/usr/local/bin:/usr/bin:/bin:/mingw64/bin:/usr/bin:/c/Users/Bear/bin:/c/Program Files (x86)/Intel/iCLS Client:/c/Program Files/Intel/iCLS Client:/c/Windows/system32:/c/Windows:/c/Windows/System32/Wbem:/c/Windows/System32/WindowsPowerShell/v1.0:/c/Program Files (x86)/Intel/Intel(R) Management Engine Components/DAL:/c/Program Files/Intel/Intel(R) Management Engine Components/DAL:/c/Program Files (x86)/Intel/Intel(R) Management Engine Components/IPT:/c/Program Files/Intel/Intel(R) Management Engine Components/IPT:/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/c/WINDOWS/system32:/c/WINDOWS:/c/WINDOWS/System32/Wbem:/c/WINDOWS/System32/WindowsPowerShell/v1.0:/c/Program Files/Microsoft SQL Server/130/Tools/Binn:/c/Program Files (x86)/GtkSharp/2.12/bin:/d/New Folder/bin:/c/Program Files/Intel/WiFi/bin:/c/Program Files/Common Files/Intel/WirelessCommon:/c/WINDOWS/System32/OpenSSH:/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/c/Users/Bear/AppData/Local/Microsoft/WindowsApps:/c/Users/Bear/AppData/Local/Microsoft/WindowsApps:/c/Users/Bear/AppData/Local/GitHubDesktop/bin:/c/Users/Bear/AppData/Local/atom/bin:/usr/bin/vendor_perl:/usr/bin/core_perl
 
 ==========
 15. Type in the following command to show all environment variables:
@@ -117,7 +126,8 @@ env
 
 Write down the last two lines of output for this command
 ----------
-
+OLDPWD=/c/Users/Bear
+_=/usr/bin/env
 
 ==========
 16. Set your PATH to include your home directory.  Do the following (substituting student or username for professor)
@@ -141,7 +151,7 @@ hello.sh
 
 It should work now!  What is the output?
 ----------
-
+Hi there
 
 ==========
 18.  Save this file in the repository that you created from parts 1 and 2.
